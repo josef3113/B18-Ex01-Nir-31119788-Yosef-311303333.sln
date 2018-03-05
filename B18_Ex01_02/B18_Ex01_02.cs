@@ -8,7 +8,7 @@ namespace B18_Ex01_02
 {
     public class B18_Ex01_02
     {
-        public static void Ex01_02_Start()   //
+        public static void Ex01_02_Start()   
         {
        
             Console.WriteLine("Hey , Ex01_02");
