@@ -46,15 +46,36 @@ namespace B18_Ex01_02
 
         }
 
-        static string MakeLine(int i_size,int i_space)
+        public static string MakeLineN(int i_NewLineSize, int i_MaxLineSize)
         {
-            String spaceForCurrentLine = new String(' ', i_space);
-            string stringLine = new string('*', i_size);
+            StringBuilder line = new StringBuilder(i_NewLineSize);
+            for (int i = 0; i < i_NewLineSize; i++)
+            {
+                char chary;
+                chary = i_NewLineSize + i < i_MaxLineSize ? ' ' : '*';
+                line.Append(chary);
+            }
+
+            return String.Format("{0}{1}", line.ToString(), Environment.NewLine);
+        }
+
+
+        static string MakeLine(int i_Size,int i_Space)
+        {
+            // String spaceForCurrentLine = new String(' ', i_space);
+            //string stringLine = new string('*', i_size);
+
+            StringBuilder lineCurrent = new StringBuilder(i_Size);
+            lineCurrent.Append(' ', i_Space);
+            lineCurrent.Append('*', i_Size);
+            // lineCurrent.Append(Environment.NewLine);
             //while (i_size > 0)
             //    {
-                  
+
             //    }
-            return   spaceForCurrentLine + stringLine + '\n';
+            // return   spaceForCurrentLine + stringLine + '\n';
+            return string.Format("{0}{1}",lineCurrent,Environment.NewLine);
+            //return lineCurrent.ToString();
         }
     }
 }
