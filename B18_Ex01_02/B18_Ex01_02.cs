@@ -60,14 +60,14 @@ namespace B18_Ex01_02
         }
 
 
-        static string MakeLine(int i_Size,int i_Space)
+        static string MakeLine(int i_LenghtStarInCurrentLine,int i_Space)
         {
             // String spaceForCurrentLine = new String(' ', i_space);
             //string stringLine = new string('*', i_size);
 
-            StringBuilder lineCurrent = new StringBuilder(i_Size);
+            StringBuilder lineCurrent = new StringBuilder(i_LenghtStarInCurrentLine);
             lineCurrent.Append(' ', i_Space);
-            lineCurrent.Append('*', i_Size);
+            lineCurrent.Append('*', i_LenghtStarInCurrentLine);
             // lineCurrent.Append(Environment.NewLine);
             //while (i_size > 0)
             //    {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{246ECE6D-020D-4284-98ED-37B674DB675E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>B18_Ex01_00</RootNamespace>
-    <AssemblyName>B18_Ex01_00</AssemblyName>
+    <ProjectGuid>{5EF1D8F6-BD96-4328-9872-FB879251C257}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>B18_Ex01_011</RootNamespace>
+    <AssemblyName>B18_Ex01_011</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,29 +31,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\B18_Ex01_011\B18_Ex01_011.csproj">
-      <Project>{5ef1d8f6-bd96-4328-9872-fb879251c257}</Project>
-      <Name>B18_Ex01_011</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\B18_Ex01_01\B18_Ex01_01.csproj">
-      <Project>{e909f1b5-55c8-4fb1-b0c1-e71ed9426e99}</Project>
-      <Name>B18_Ex01_01</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\B18_Ex01_02\B18_Ex01_02.csproj">
-      <Project>{e984c02e-b932-4a8f-a86d-ed232adbb571}</Project>
-      <Name>B18_Ex01_02</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\B18_Ex01_03\B18_Ex01_03.csproj">
-      <Project>{690ef2cb-3c7e-4a0a-aaf2-4fd1909cc4f5}</Project>
-      <Name>B18_Ex01_03</Name>
-    </ProjectReference>
+    <Compile Include="B18_Ex01_011.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
