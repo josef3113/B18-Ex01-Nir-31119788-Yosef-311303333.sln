@@ -22,7 +22,7 @@ namespace B18_Ex01_011
                 int dechimal = BinaryNumToDechimal(arrOfBinaryNumbers[i]);
                 Console.WriteLine("{0}", dechimal);
             }
-
+   
         }
 
         public static string Input()
