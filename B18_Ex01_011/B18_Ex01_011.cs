@@ -16,7 +16,7 @@ namespace B18_Ex01_011
             {
                 arrOfBinaryNumbers[i] = Input();
             }
-
+//
             for (int i = 0; i < i_CountValueToGet; i++)
             {
                 int dechimal = BinaryNumToDechimal(arrOfBinaryNumbers[i]);
