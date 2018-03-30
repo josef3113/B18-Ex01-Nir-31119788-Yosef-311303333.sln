@@ -8,18 +8,15 @@ namespace B18_Ex01_011
 { 
     public class B18_Ex01_011
     {    
-        public static void StartEx_01_011(int i_CountValueToGet = 3, int i_LenghtOfNumber = 9)
+        public static void StartEx_01_011(int i_CountValueToGet = 9)
         {
             Console.WriteLine("Welcome to EX_011");
-            string[] arrOfBinaryNumbers = new string[i_CountValueToGet];
-            for (int i = 0; i < i_CountValueToGet; i++)
-            {
-                arrOfBinaryNumbers[i] = Input(i_LenghtOfNumber);
-            }
+            string[] arrOfBinaryNumbers = InputManager();
+            
 
             int[]  arrDechimal                      = ArrOfBinaryToArrOfInt (arrOfBinaryNumbers);
-            float  avgOfOneInNumbers                = (float)CountOfElementsInArry(arrOfBinaryNumbers, '1') / (i_CountValueToGet * i_LenghtOfNumber);
-            float  avgOfZeroInNumbers               = (float)CountOfElementsInArry(arrOfBinaryNumbers, '0') / (i_CountValueToGet * i_LenghtOfNumber);
+            float  avgOfOneInNumbers                = (float)CountOfElementsInArry(arrOfBinaryNumbers, '1') / (i_CountValueToGet);
+           // float  avgOfZeroInNumbers               = (float)CountOfElementsInArry(arrOfBinaryNumbers, '0') / (i_CountValueToGet);
             int    countOfSeriesDescendingInNumbers = CountOfSeriesDescendingInArry(arrDechimal);
             int    countOfPow2InNumbers             = CountOfPow2InArry(arrDechimal);
             float  avgOfDechimalNumbers             = AvgOfIntArry(arrDechimal);
@@ -29,11 +26,21 @@ namespace B18_Ex01_011
             Console.WriteLine("In dechimal numbers is :");
             PrintArrOfString( ArrOfIntToArrOfString ( arrDechimal));
             Console.WriteLine("The averg of '1' in numbers is :{0}", avgOfOneInNumbers);
-            Console.WriteLine("The averg of '0' in numbers is :{0}", avgOfZeroInNumbers);
+           // Console.WriteLine("The averg of '0' in numbers is :{0}", avgOfZeroInNumbers);
             Console.WriteLine("The count of series descending in numbers is :{0}", countOfSeriesDescendingInNumbers);
             Console.WriteLine("The count of power of '2' in numbers is :{0}", countOfPow2InNumbers);
             Console.WriteLine("The averg of numbers is :{0}", avgOfDechimalNumbers);
 
+        }
+
+        public static string[] InputManager(int i_CountValueToGet = 3, int i_LenghtOfValue = 9)
+        {
+            string[] arrOfBinaryNumbers = new string[i_CountValueToGet];
+            for (int i = 0; i < i_CountValueToGet; i++)
+            {
+                arrOfBinaryNumbers[i] = BinaryInput(i_LenghtOfValue);
+            }
+            return arrOfBinaryNumbers;
         }
 
         public static float AvgOfIntArry(int[] i_ArryToAvg)
@@ -74,12 +81,12 @@ namespace B18_Ex01_011
 
         public static int CountOfElementsInArry(string[] i_ArryToCheck, char i_ElementToCount)
         {
-            int countOfDigit = 0;
+            int countOfElement = 0;
             for(int i = 0; i < i_ArryToCheck.Length; i++)
             {
-                countOfDigit += CountElementsInString(i_ArryToCheck[i], i_ElementToCount);
+                countOfElement += CountElementsInString(i_ArryToCheck[i], i_ElementToCount);
             }
-            return countOfDigit;
+            return countOfElement;
         }
 
         public static int CountElementsInString(string i_StringToCheck, char i_ElementToCount)
@@ -135,26 +142,30 @@ namespace B18_Ex01_011
             return arrOfIntNumbers;
         }
 
-        public static string Input(int i_LenghtOfNumber)
+        public static string BinaryInput(int i_LenghtOfNumber)
         {
             string stringBinaryNum =null ;
-            bool legalInput = false;
-            while ( !legalInput)
-            { 
+            bool legalInput = true;
+            do
+            {
                 stringBinaryNum = Console.ReadLine();
-                int oneInString = CountElementsInString (stringBinaryNum, '1');
-                int zeroInNumber = CountElementsInString (stringBinaryNum, '0');
-
-                if (stringBinaryNum.Length == i_LenghtOfNumber && (oneInString + zeroInNumber) == i_LenghtOfNumber )
+                if (stringBinaryNum.Length == i_LenghtOfNumber)
                 {
-                        legalInput = true;
-                    
+                    foreach (var item in stringBinaryNum)
+                    {
+                        if (!(item == '0' || item == '1'))
+                        {
+                            legalInput = false;
+                            break;
+                        }
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("wrong input try again");
-                }
+                Console.WriteLine("wrong input try again");
             }
+            while (!legalInput);
+            
+                   
+               
             return stringBinaryNum;
         }
 
